@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.hkit.pms.mapper.board.BoardFreeMapper">
+
+<!-- 	<insert id="insert">
+		insert into TB_COMMUNITY (IDX,CUM_TITLE, CUM_CONTENTS, CUM_WRITER)
+		values (TB_COMMUNITY_IDX.nextval, #{freetitle}, #{freecontent}, #{freewriter})
+	</insert>
+	 -->
+	<select id="freeselect" resultType="kr.hkit.pms.domain.board.BoardFreeDTO">
+		select * from TB_COMMUNITY order by IDX
+	</select>
+	
+</mapper>
+
+
