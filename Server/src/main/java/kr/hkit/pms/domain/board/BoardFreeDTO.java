@@ -6,10 +6,10 @@ import lombok.Data;
 
 @Data
 public class BoardFreeDTO {
-	private int free_idx; // 인덱스
-	private String free_title; // 제목
-	private String free_content; // 내용
-	private String free_write; // 작성자
-	private int free_view_cnt; // 조회수
-	private LocalDate free_register_time; // 시간
+	private int IDX; // 인덱스
+	private String CUM_TITLE; // 제목
+	private String CUM_CONTENTS; // 내용
+	private String CUM_WRITER; // 작성자
+	private int CUM_VIEW_CNT; // 조회수
+	private LocalDate CUM_REGISTER_TIME; // 시간
 }

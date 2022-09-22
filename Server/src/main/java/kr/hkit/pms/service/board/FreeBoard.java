@@ -7,7 +7,9 @@ import kr.hkit.pms.domain.board.BoardFreeDTO;
 
 public interface FreeBoard {
 	
-	//public void register(BoardFreeDTO freeboard);
 	
 	public List<BoardFreeDTO> getFreeList();
+	
+	// insert	
+	public void freeinsert(BoardFreeDTO freeboard);
 }

@@ -2,7 +2,9 @@ package kr.hkit.pms.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,11 +31,21 @@ public class BoardController {
 		return mav;
 	}
 	
-	@GetMapping("/free_create")
-	public ModelAndView getFreeCreate() {
-		log.info("-----자유게시판 작성");
-		ModelAndView mav = new ModelAndView("/board/free_create");
-			
+	// 글쓰기  GET방식(화면 보여주기)
+	@RequestMapping(value="free_create", method=RequestMethod.GET)
+	public ModelAndView getFreeCreateView() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/board/free_create");
+		return mav;
+	}
+	
+	// 글쓰기 POST방식(내용 전달)
+	@RequestMapping(value="/board/getFreeCreate", method=RequestMethod.POST)
+	public ModelAndView getFreeCreate(BoardFreeDTO free_board) {
+		log.info("-----자유게시판 작성 요청");
+		freeboard.freeinsert(free_board);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/board/free");
 		return mav;
 	}
 	

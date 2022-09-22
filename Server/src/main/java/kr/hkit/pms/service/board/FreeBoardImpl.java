@@ -18,12 +18,12 @@ public class FreeBoardImpl implements FreeBoard {
 	@Autowired
 	private BoardFreeMapper mapper;
 	
-//	@Override
-//	public void register(BoardFreeDTO freeboard) {
-//		log.info("register---" + freeboard);
-//		
-//		mapper.insert(freeboard);
-//	}
+	@Override
+	public void freeinsert(BoardFreeDTO freeboard) {
+		log.info("register---" + freeboard);
+		
+		mapper.freeinsert(freeboard);
+	}
 	
 	@Override
 	public List<BoardFreeDTO> getFreeList() {

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
     
@@ -20,7 +21,7 @@
 			  </div>
 			</nav>
             <div class="card mb-4">
-                <form class="card-body" action="free_create" method="POST">
+                <div class="card-body">
                     <table class="table">
 					  <thead>
 					    <tr>
@@ -31,18 +32,20 @@
 					    </tr>
 					  </thead>
 					  <tbody class="table-group-divider">
-				 	  <c:forEach items="${freelist}" var="flist">
-					    <tr>
-					      <td><c:out value="${flist.free_idx}"/></td>
-					      <td><a href="free_read"><c:out value="${flist.free_title}"/></a></td>
-					      <td><c:out value="${flist.free_content}" /></td>
-					      <td><c:out value="${flist.free_write}"/></td>
-					    </tr>
-					  </c:forEach> 
+					  	<c:forEach items="${freelist}" var="flist">
+							<tr>
+								<td>
+									<c:out value="${flist.IDX}"/>
+								</td>
+								<td><a href="free_read"><c:out value="${flist.CUM_TITLE}"/></a></td>
+								<td><c:out value="${flist.CUM_CONTENTS}"/></td>
+								<td><c:out value="${flist.CUM_WRITER}"/></td>
+							</tr>
+						</c:forEach>		  
 					  </tbody>
 					</table>
-					<input class="btn btn-primary" type="submit" value="생성" >
-                </form>
+					<button type="button" class="btn btn-primary " onclick="self.location='free_create'">글쓰기</button>
+                </div>
             </div>
             <div style="height: 100vh"></div>
             <div class="card mb-4"><div class="card-body">When scrolling, the navigation stays at the top of the page. This is the end of the static navigation demo.</div></div>

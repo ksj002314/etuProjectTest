@@ -20,4 +20,6 @@ public interface BoardFreeMapper {
 
 	public List<BoardFreeDTO> freeselect();
 	
+	public void freeinsert(BoardFreeDTO freeboard);
+	
 }
