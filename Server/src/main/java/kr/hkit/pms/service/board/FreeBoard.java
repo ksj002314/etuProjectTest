@@ -18,4 +18,7 @@ public interface FreeBoard {
 	
 	//삭제하기
 	public boolean freedelete(Long IDX);
+	
+	// 수정하기
+	public void freemodify(BoardFreeDTO freeboard);
 }

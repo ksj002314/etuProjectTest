@@ -21,6 +21,15 @@
 		delete from TB_COMMUNITY where IDX = #{IDX}
 	</delete>
 	
+	<!-- 수정하기 -->
+	<update id="freeupdate">
+		update TB_COMMUNITY SET CUM_TITLE = #{CUM_TITLE},
+								CUM_CONTENTS = #{CUM_CONTENTS},
+								CUM_WRITER = #{CUM_WRITER}
+							WHERE IDX = #{IDX}
+	</update>
+	
+	
 </mapper>
 
 

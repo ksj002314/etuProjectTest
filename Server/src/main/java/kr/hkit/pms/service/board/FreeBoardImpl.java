@@ -40,5 +40,9 @@ public class FreeBoardImpl implements FreeBoard {
 		return mapper.freedelete(IDX) == 1;
 	}
 	
-
+	// 수정하기
+	public void freemodify(BoardFreeDTO freeboard) {
+		log.info(".....update........");
+		mapper.freeupdate(freeboard);
+	}	
 }

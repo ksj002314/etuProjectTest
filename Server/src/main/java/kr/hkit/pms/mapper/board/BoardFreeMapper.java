@@ -24,4 +24,6 @@ public interface BoardFreeMapper {
 	public BoardFreeDTO freeread(Long IDX);
 	
 	public int freedelete(Long IDX);
+	
+	public int freeupdate(BoardFreeDTO freeboard);
 }

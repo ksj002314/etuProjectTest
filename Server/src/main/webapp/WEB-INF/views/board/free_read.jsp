@@ -37,9 +37,9 @@
 				  <label for="floatingPassword">시간</label>
 				</div> -->
 				<div class="container-fluid justify-content-end">
-					<input type="submit" value="수정" class=" btn-primary mb-2 btn-lg">
+					<input type="submit" value="수정" onClick="self.location='${path}/board/free_edit?IDX=${freeread.IDX}'" class=" btn-primary mb-2 btn-lg">
 					<input type="button" value="목록보기" onClick="self.location='free'"class=" btn-primary mb-2 btn-lg">
-					<input type="submit" value="삭제" class="btn btn-danger mb-2 btn-lg">
+					<input type="submit" value="삭제" class="btn btn-danger mb-2 btn-lg" onclick="freedelete()">
 					<input type="button" class=" mb-2 btn-lg btn-primary" onClick="history.back();" value="취소">
 				</div>
 				
@@ -53,9 +53,11 @@
     </main>
 	
 	<script>
+	
+		/* 삭제 functoin  */
 		function freedelete() {
 			if(confirm('삭제 하시겠습니까?')) {
-				self.location='free';
+				location.href="freedelete?IDX=" + ${freeread.IDX};
 0			} return false;
 		}
 		
