@@ -2,16 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.hkit.pms.mapper.board.BoardFreeMapper">
 
- 	<insert id="freeinsert">
-		insert into TB_COMMUNITY (IDX, CUM_TITLE, CUM_CONTENTS, CUM_WRITER )
-		values (#{IDX}, #{CUM_TITLE}, #{CUM_CONTENTS}, #{CUM_WRITER})
+
+ 	<insert id="freeinsert"> 	 	
+		insert into TB_COMMUNITY (IDX, CUM_TITLE, CUM_CONTENTS, CUM_WRITER, CUM_REGISTER_TIME )
+		values (TB_COMMUNITY_IDX.nextval, #{CUM_TITLE}, #{CUM_CONTENTS}, #{CUM_WRITER}, sysdate)
 	</insert>
 	
 	<select id="freeselect" resultType="kr.hkit.pms.domain.board.BoardFreeDTO">
 		select * from TB_COMMUNITY order by IDX
 	</select>
+
+	<!-- 조회하기 -->
+	<select id="freeread" resultType="kr.hkit.pms.domain.board.BoardFreeDTO">
+		select * from TB_COMMUNITY where IDX = #{IDX}
+	</select>
 	
-	
+	<delete id="freedelete">	<!-- BoardMapper.java 인터페이스 메소드명과 동일 -->
+		delete from TB_COMMUNITY where IDX = #{IDX}
+	</delete>
 	
 </mapper>
 

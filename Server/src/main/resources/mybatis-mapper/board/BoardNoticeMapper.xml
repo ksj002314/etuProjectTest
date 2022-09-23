@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.hkit.pms.mapper.board.BoardNoticeMapper">
+
+	<insert id="noticeinsert">
+		insert into TB_POST (IDX, POST_TITLE, POST_CONTENT, POST_WRITER )
+		values (TB_POST_IDX.NEXTVAL, #{POST_TITLE}, #{POST_CONTENTS}, #{POST_WRITER})
+	</insert>
+	
+	<select id="noticeselect" resultType="kr.hkit.pms.domain.board.BoardNoticeDTO">
+		select * from TB_POST order by IDX
+	</select>
+	
+	<select id="noticeread" resultType="kr.hkit.pms.domain.board.BoardNoticeDTO">
+		select * from TB_POST where IDX = #{IDX}
+	</select>
+</mapper>

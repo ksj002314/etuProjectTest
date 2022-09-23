@@ -22,24 +22,28 @@
 			</nav>
             <div class="card mb-4">
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table table table-striped table-hover" >
 					  <thead>
 					    <tr>
 					      <th scope="col">번호</th>
 					      <th scope="col">제목</th>
 					      <th scope="col">내용</th>
 					      <th scope="col">작성자</th>
+					      <th scope="col">작성시간</th>
 					    </tr>
 					  </thead>
 					  <tbody class="table-group-divider">
 					  	<c:forEach items="${freelist}" var="flist">
-							<tr>
+							<tr >
 								<td>
 									<c:out value="${flist.IDX}"/>
 								</td>
-								<td><a href="free_read"><c:out value="${flist.CUM_TITLE}"/></a></td>
+								<td><a href='<c:out value="${flist.IDX}"/>'><c:out value="${flist.CUM_TITLE}"/></a></td>
 								<td><c:out value="${flist.CUM_CONTENTS}"/></td>
 								<td><c:out value="${flist.CUM_WRITER}"/></td>
+								<td>
+									<fmt:formatDate value="${flist.CUM_REGISTER_TIME}" pattern="yyyy.MM.dd HH:mm "/>
+								</td>
 							</tr>
 						</c:forEach>		  
 					  </tbody>

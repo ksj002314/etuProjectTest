@@ -16,10 +16,12 @@ public interface BoardFreeMapper {
 //	public boolean cntPlus(int idx); // 조회수
 //	public List<BoardFreeDTO> getlist(); 
 	
-	// public void insert(BoardFreeDTO freeboard);
 
 	public List<BoardFreeDTO> freeselect();
 	
 	public void freeinsert(BoardFreeDTO freeboard);
 	
+	public BoardFreeDTO freeread(Long IDX);
+	
+	public int freedelete(Long IDX);
 }

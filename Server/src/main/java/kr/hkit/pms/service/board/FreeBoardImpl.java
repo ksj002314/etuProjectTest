@@ -29,5 +29,16 @@ public class FreeBoardImpl implements FreeBoard {
 	public List<BoardFreeDTO> getFreeList() {
 		return mapper.freeselect();
 	}
+	
+	@Override
+	public BoardFreeDTO getFreeRead(Long IDX) {
+		return mapper.freeread(IDX);
+	}
+	
+	@Override
+	public boolean freedelete(Long IDX) {
+		return mapper.freedelete(IDX) == 1;
+	}
+	
 
 }

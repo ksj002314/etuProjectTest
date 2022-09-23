@@ -2,9 +2,11 @@ package kr.hkit.pms.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,7 +26,7 @@ public class BoardController {
 	
 	@GetMapping("/free")
 	public ModelAndView getFree() {
-		log.info("-----자유게시판");
+		log.info("-----자유게시판 리스트");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/board/free");
 		mav.addObject("freelist", freeboard.getFreeList());	
@@ -49,15 +51,30 @@ public class BoardController {
 		return mav;
 	}
 	
-	
-	@GetMapping("/free_read")
-	public ModelAndView getFreeRead() {
-		log.info("-----자유게시판 읽기");
-		ModelAndView mav = new ModelAndView("/board/free_read");
-			
+	@GetMapping("/freedelete")
+	public ModelAndView fredelete(@PathVariable("IDX") Long IDX) {
+		log.info("----------삭제");
+		freeboard.freedelete(IDX);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/board/free");
 		return mav;
 	}
 	
+	
+	// 게시판 해당글 읽기	
+	@RequestMapping(value="/{IDX}", method=RequestMethod.GET)
+	public ModelAndView getFreeRead(@PathVariable("IDX") Long IDX) {
+		log.info("-----자유게시판 읽기");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("board/free_read");
+		mav.addObject("freeread", freeboard.getFreeRead(IDX));
+		return mav;
+	}
+	
+	// 게시판 삭제
+	
+	
+
 	// 공지사항
 	
 	@GetMapping("/notice")
