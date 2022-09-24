@@ -49,10 +49,10 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:/board/free");
 		return mav;
-	}
+	} 
 	
 	// 게시판 삭제
-	@RequestMapping("/freedelete")
+	@RequestMapping("free/freedelete")
 	public ModelAndView freedelete(@RequestParam("IDX") Long IDX) {
 		log.info("----------삭제");
 		ModelAndView mav = new ModelAndView();
@@ -63,7 +63,7 @@ public class BoardController {
 	
 	
 	// 게시판 해당 글 읽기	
-	@RequestMapping(value="/{IDX}", method=RequestMethod.GET)
+	@RequestMapping(value="free/{IDX}", method=RequestMethod.GET)
 	public ModelAndView getFreeRead(@PathVariable("IDX") Long IDX) {
 		log.info("-----자유게시판 읽기");
 		ModelAndView mav = new ModelAndView();
@@ -76,21 +76,26 @@ public class BoardController {
 	
 	// 게시판 글 수정 화면 이동
 	@GetMapping("/free_edit")
-	public ModelAndView getFreeupdate(BoardFreeDTO freeupdateboard, Long IDX) {
+	public ModelAndView getFreeupdate(@RequestParam("IDX") Long IDX) {
 		log.info("-----자유게시판 수정");
 		ModelAndView mav = new ModelAndView();
+		BoardFreeDTO freedto = freeboard.getFreeRead(IDX); 
+		mav.addObject("freeupdate", freedto);
 		mav.setViewName("board/free_edit");
-		mav.addObject("freeupdate", freeboard.getFreeRead(IDX));
 		return mav;
 	}
 	
 	// 게시판 글 수정
-	/*
-	 * @PostMapping("/freeUpdate") public ModelAndView getFreeUpdate(BoardFreeDTO
-	 * freeupdateboard) { log.info("------자유게시판 해당 글 수정"); ModelAndView mav = new
-	 * ModelAndView(); freeboard.freemodify(freeupdateboard);
-	 * mav.setViewName("redirect:/board/free"); return mav; }
-	 */
+	
+	 @PostMapping("/freeupdate") 
+	 public ModelAndView FreeUpdate(BoardFreeDTO freeupdateboard) { 
+		 log.info("------자유게시판 해당 글 수정"); 
+		 ModelAndView mav = new ModelAndView();
+		 freeboard.freemodify(freeupdateboard);
+		 mav.setViewName("redirect:/board/free");
+		 return mav; 
+	 }
+	 
 	
 	
 	

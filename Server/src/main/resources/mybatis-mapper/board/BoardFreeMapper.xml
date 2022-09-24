@@ -23,9 +23,11 @@
 	
 	<!-- 수정하기 -->
 	<update id="freeupdate">
-		update TB_COMMUNITY SET CUM_TITLE = #{CUM_TITLE},
+		update TB_COMMUNITY SET IDX = TB_COMMUNITY_IDX.nextval,
+								CUM_TITLE = #{CUM_TITLE},
 								CUM_CONTENTS = #{CUM_CONTENTS},
-								CUM_WRITER = #{CUM_WRITER}
+								CUM_WRITER = #{CUM_WRITER},
+								CUM_REGISTER_TIME = sysdate
 							WHERE IDX = #{IDX}
 	</update>
 	

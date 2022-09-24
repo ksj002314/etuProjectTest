@@ -23,10 +23,12 @@
 			</nav>
             <div class="card mb-4 p-4">
             	<!-- 수정버튼 동작안됨 -->
-				<form action="/freeUpdate" method="post">
-					<input type="hidden" path="IDX" id="IDX" value='${freeupdate.IDX}' />
+				<form action="freeupdate" method="post">
+					<div>
+						<input type="hidden"  id="IDX" name="IDX" value='<c:out value="${freeupdate.IDX}"/>'>
+					</div>
 					<div class="form-floating mb-3">
-					  <input type="text" class="form-control" id="CUM_TITLE" placeholder="Password"  value='<c:out value="${freeupdate.CUM_TITLE}"/>'>
+					  <input type="text" class="form-control" id="CUM_TITLE" name="CUM_TITLE" placeholder="Password"  value='<c:out value="${freeupdate.CUM_TITLE}"/>'>
 					  <label>제목</label>
 					</div>			
 					<div class="form-floating mb-3">
@@ -34,7 +36,7 @@
 					   <label>내용</label>
 					</div>	
 					<div class="form-floating mb-3">
-					  <input type="text" class="form-control" id="CUM_WRITER" placeholder="Password"  value='<c:out value="${freeread.CUM_WRITER}"/>'>
+					  <input type="text" class="form-control" id="CUM_WRITER" name="CUM_WRITER" placeholder="Password"  value='<c:out value="${freeupdate.CUM_WRITER}"/>'>
 					  <label>작성자</label>
 					</div>
 					

@@ -38,7 +38,7 @@
 								<td>
 									<c:out value="${flist.IDX}"/>
 								</td>
-								<td><a href='<c:out value="${flist.IDX}"/>'><c:out value="${flist.CUM_TITLE}"/></a></td>
+								<td><a href='<c:out value="free/${flist.IDX}"/>'><c:out value="${flist.CUM_TITLE}"/></a></td>
 								<td><c:out value="${flist.CUM_CONTENTS}"/></td>
 								<td><c:out value="${flist.CUM_WRITER}"/></td>
 								<td>
