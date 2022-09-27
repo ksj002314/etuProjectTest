@@ -1,5 +1,7 @@
 package kr.hkit.mapper;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import kr.hkit.pms.KitPms2Application;
+import kr.hkit.pms.domain.board.BoardFreeDTO;
+import kr.hkit.pms.mapper.board.BoardFreeMapper;
 import kr.hkit.pms.mapper.human.AttendanceMgtMapper;
 import lombok.extern.log4j.Log4j2;
 
@@ -18,8 +22,14 @@ public class MapperTest {
 	@Autowired
     AttendanceMgtMapper amm;
 
-    @Test
+	
+    //@Test
     public void test1() {
         log.info(amm.getList());
     }
-}
+    
+ 
+    
+ }
+    
+

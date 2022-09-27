@@ -5,25 +5,33 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import kr.hkit.pms.domain.board.BoardFreeDTO;
+import kr.hkit.pms.domain.board.Criteria;
 
 @Mapper
 public interface BoardFreeMapper {
-//	public int freeinsertBoard(BoardFreeDTO params); //게시글 등록
-//	public BoardFreeDTO selectFreeBoardDetail(int idx); // 게시글 조회
-//	public int updateFreeBoard(BoardFreeDTO params); // 게시글 수정
-//	public int deleteFreeBoard(int idx); // 게시글 삭제
-//	public List<BoardFreeDTO> selectBoardList(); // 게시글 삭제 여부
-//	public boolean cntPlus(int idx); // 조회수
-//	public List<BoardFreeDTO> getlist(); 
-	
 
-	public List<BoardFreeDTO> freeselect();
+	// 리스트 보기
+	public List<BoardFreeDTO> freegetList();
 	
-	public void freeinsert(BoardFreeDTO freeboard);
+	// 글 만들기
+	public void Freeinsert(BoardFreeDTO boardfree);
 	
+	// 글 만들기 선택 번호
+	public void insertSelectKey(BoardFreeDTO boardfree);
+	
+	// 글 조회
 	public BoardFreeDTO freeread(Long IDX);
 	
-	public int freedelete(Long IDX);
+	// 삭제
+	public int freedelete(Long IDX); 
 	
-	public int freeupdate(BoardFreeDTO freeboard);
+	// 글 수정
+	public int freeupdate(BoardFreeDTO boardfree);
+	
+	
+	// 페이징
+	public List<BoardFreeDTO> getListWithPaging(Criteria cri);
+	
+	
+	public int gettotalcount(Criteria cri);
 }

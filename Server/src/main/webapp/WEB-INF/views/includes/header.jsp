@@ -112,7 +112,7 @@
                             <div class="collapse" id="collapseLayouts5" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="/board/notice">공지사항</a>
-                                    <a class="nav-link" href="/board/free">자유게시판</a>
+                                    <a class="nav-link" href="/board/freelist">자유게시판</a>
                                     <a class="nav-link" href="/board/ref">자료실</a>
                                 </nav>
                             </div>
